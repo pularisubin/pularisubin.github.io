@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliography on Time Bounded Kolmogorov Complexity and Meta-complexity</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: #333;
+        }
+        h2 {
+            font-size: 1.3em;
+        }
+        p {
+            margin: 0 0 10px;
+        }
+        .blue-text {
+            color: blue;
+        }
+        h3 {
+            color: #000;
+            margin-top: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+        .paper-unit {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .paper-unit:hover {
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+        .paper-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .expand-btn {
+            padding: 5px 15px;
+            font-size: 0.9em;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .expand-btn:hover {
+            background-color: #0056b3;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+    </style>
+    <script>
+        function toggleDetails(button) {
+            const details = button.parentElement.nextElementSibling;
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+                button.textContent = "Hide Details";
+            } else {
+                details.style.display = "none";
+                button.textContent = "Show Details";
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h2>Bibliography on Time Bounded Kolmogorov Complexity and Meta-complexity</h2>
+    <p class="blue-text">
+        The page is currently under construction. Please send a mail to 
+        <a href="mailto:subin.pulari@labri.fr">subin.pulari@labri.fr</a> 
+        for any queries/suggestions.
+    </p>
+    <p>Below is a year-wise compilation of research papers regarding time bounded Kolmogorov complexity and meta-complexity. Each entry contains details, a summary, and main techniques.</p>
+    
+    <h3>Bibliography</h3>
+    <div class="year-section">
+        <h4>Year: 2024</h4>
+        <div class="paper-unit">
+            <div class="paper-header">
+                <div>
+                    <strong>Title:</strong> An Example Paper on Meta-complexity<br>
+                    <strong>Authors:</strong> Author A, Author B
+                </div>
+                <button class="expand-btn" onclick="toggleDetails(this)">Show Details</button>
+            </div>
+            <div class="details">
+                <strong>Publication:</strong> Journal of Complexity, Vol. 40, Issue 3<br>
+                <strong>Link:</strong> <a href="https://example.com">[View Paper]</a><br>
+                <strong>Summary:</strong>
+                <p>This paper explores the connections between time-bounded Kolmogorov complexity and certain meta-complexity conjectures.</p>
+                <strong>Main Techniques:</strong>
+                <p>Utilizes diagonalization methods and techniques from computational complexity to derive results.</p>
+            </div>
+        </div>
+    </div>
+    <div class="year-section">
+        <h4>Year: 2023</h4>
+        <div class="paper-unit">
+            <div class="paper-header">
+                <div>
+                    <strong>Title:</strong> Another Study on Complexity<br>
+                    <strong>Authors:</strong> Author C, Author D
+                </div>
+                <button class="expand-btn" onclick="toggleDetails(this)">Show Details</button>
+            </div>
+            <div class="details">
+                <strong>Publication:</strong> Complexity and Computation Conference<br>
+                <strong>Link:</strong> <a href="https://example2.com">[View Paper]</a><br>
+                <strong>Summary:</strong>
+                <p>This study examines new bounds on Kolmogorov complexity in restricted time regimes.</p>
+                <strong>Main Techniques:</strong>
+                <p>Adopts probabilistic approaches combined with classical proof frameworks.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
