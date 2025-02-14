@@ -87,7 +87,7 @@ for year, papers in papers_by_year:
         details.append(soup.new_tag('strong'))
         details.contents[-1].string = 'Main Techniques: '
         techniques = soup.new_tag('p')
-        techniques.string = paper['Techniques']
+        techniques.string = str(paper['Techniques']) if pd.notna(paper['Techniques']) else ""
         details.append(techniques)
         
         paper_unit.append(details)
