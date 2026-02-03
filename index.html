@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"> 
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0030)https://pularisubin.github.io/ -->
+<html lang="en" style="--vsc-domain: &quot;pularisubin.github.io&quot;;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subin Pulari</title>
     <style>
@@ -54,7 +54,133 @@
         }
     </style>
 </head>
-<body>
+<body><vsc-controller class="vsc-controller vsc-nosource" style="top: 0px; left: 0px; position: absolute !important; z-index: 9999999 !important;"><template shadowrootmode="open"><style>
+      * {
+        line-height: 1.8em;
+        font-family: sans-serif;
+        font-size: 13px;
+      }
+      
+      :host(:hover) #controls {
+        display: inline-block;
+      }
+      
+      /* Hide shadow DOM content for different hiding scenarios */
+      :host(.vsc-hidden) #controller,
+      :host(.vsc-nosource) #controller {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+      }
+      
+      /* Override hiding for manual controllers (unless explicitly hidden) */
+      :host(.vsc-manual:not(.vsc-hidden)) #controller {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 0.3 !important;
+      }
+      
+      /* Show shadow DOM content when host has vsc-show class (highest priority) */
+      :host(.vsc-show) #controller {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 0.3 !important;
+      }
+      
+      #controller {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: black;
+        color: white;
+        border-radius: 6px;
+        padding: 4px;
+        margin: 10px 10px 10px 15px;
+        cursor: default;
+        z-index: 9999999;
+        white-space: nowrap;
+      }
+      
+      #controller:hover {
+        opacity: 0.7;
+      }
+      
+      #controller:hover>.draggable {
+        margin-right: 0.8em;
+      }
+      
+      #controls {
+        display: none;
+        vertical-align: middle;
+      }
+      
+      #controller.dragging {
+        cursor: -webkit-grabbing;
+        opacity: 0.7;
+      }
+      
+      #controller.dragging #controls {
+        display: inline-block;
+      }
+      
+      .draggable {
+        cursor: -webkit-grab;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.8em;
+        height: 1.4em;
+        text-align: center;
+        vertical-align: middle;
+        box-sizing: border-box;
+      }
+      
+      .draggable:active {
+        cursor: -webkit-grabbing;
+      }
+      
+      button {
+        opacity: 1;
+        cursor: pointer;
+        color: black;
+        background: white;
+        font-weight: normal;
+        border-radius: 5px;
+        padding: 1px 5px 3px 5px;
+        font-size: inherit;
+        line-height: inherit;
+        border: 0px solid white;
+        font-family: "Lucida Console", Monaco, monospace;
+        margin: 0px 2px 2px 2px;
+        transition: background 0.2s, color 0.2s;
+      }
+      
+      button:focus {
+        outline: 0;
+      }
+      
+      button:hover {
+        opacity: 1;
+        background: #2196f3;
+        color: #ffffff;
+      }
+      
+      button:active {
+        background: #2196f3;
+        color: #ffffff;
+        font-weight: bold;
+      }
+      
+      button.rw {
+        opacity: 0.65;
+      }
+      
+      button.hideButton {
+        opacity: 0.65;
+        margin-left: 8px;
+        margin-right: 2px;
+      }
+    </style><div id="controller" style="top: 0px; left: 0px; opacity: 0.3;"><span data-action="drag" class="draggable" style="font-size: 14px;">1.00</span><span id="controls" style="font-size: 14px; line-height: 14px;"><button data-action="rewind" class="rw">«</button><button data-action="slower">−</button><button data-action="faster">+</button><button data-action="advance" class="rw">»</button><button data-action="display" class="hideButton">×</button></span></div></template></vsc-controller>
     <div class="container">
         <div class="header">
             <div class="header-text">
@@ -63,7 +189,7 @@
                 Faculty of Computer Science<br>
                 HSE University, Moscow<br>
                 Email: spulari (at) hse (dot) ru</p>
-                <p><br><b>Curriculum Vitae: </b><a href="CV.pdf">[Link]</a></p>
+                <p><br><b>Curriculum Vitae: </b><a href="https://pularisubin.github.io/CV.pdf">[Link]</a></p>
             </div>
 <!--             <img src="photo.jpeg" alt="Subin Pulari">
  -->        </div>
@@ -77,7 +203,7 @@
                 <ul>
                     <li>17th Latin American Theoretical Informatics Symposium (LATIN 2026), Florianópolis, Brazil <i>(To Appear)</i></li>
                     <li>ArXiv: <a href="https://arxiv.org/abs/2510.18736">[Link]</a></li>
-                    <li>PDF: <a href="markovchainfsd.pdf">[Link]</a></li>
+                    <li>PDF: <a href="https://pularisubin.github.io/markovchainfsd.pdf">[Link]</a></li>
                 </ul>
             </li>
             <li>
@@ -87,7 +213,7 @@
                 <ul>
                     <li>45th IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science (FSTTCS 2025), Goa, India <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSTTCS.2025.16">[Link]</a></li>
                     <li>ArXiv: <a href="https://arxiv.org/abs/2502.12307">[Link]</a></li>
-                    <li>PDF: <a href="agafonov.pdf">[Link]</a></li>
+                    <li>PDF: <a href="https://pularisubin.github.io/agafonov.pdf">[Link]</a></li>
                 </ul>
             </li>
             <li>
@@ -182,7 +308,13 @@
                 <ul>
                     <li>ArXiv: <a href="https://arxiv.org/abs/2411.02392">[Link]</a></li>
                     <li>ECCC: <a href="https://eccc.weizmann.ac.il/report/2025/028/">[Link]</a></li>
-                    <li>PDF: <a href="owfdimensionduality.pdf">[Link]</a></li>
+                    <li>PDF: <a href="https://pularisubin.github.io/owfdimensionduality.pdf">[Link]</a></li>
+                </ul>
+            </li>
+            <li>
+                <strong>On Normality and Equidistribution for Separator Enumerators </strong> 
+                <ul>
+                    <li>ArXiv: <a href="https://arxiv.org/abs/2602.01199">[Link]</a></li>
                 </ul>
             </li>
         </ol>
@@ -208,5 +340,20 @@
             });
         });
     </script>
-</body>
-</html>
+
+
+<div id="give-freely-root-kkkbiiikppgjdiebcabomlbidfodipjg" class="give-freely-root" data-extension-id="kkkbiiikppgjdiebcabomlbidfodipjg" data-extension-name="Substital: Add subtitles to videos and movies" style="display: block;"><template shadowrootmode="open"></template></div><audio class="audio-output" style="display: none;"></audio><div id="volume-booster-visusalizer">
+                    <div class="sound">
+                        <div class="sound-icon"></div>
+                        <div class="sound-wave sound-wave_one"></div>
+                        <div class="sound-wave sound-wave_two"></div>
+                        <div class="sound-wave sound-wave_three"></div>
+                    </div>
+                    <div class="segments-box">
+                        <div data-range="1-20" class="segment"><span></span></div>
+                        <div data-range="21-40" class="segment"><span></span></div>
+                        <div data-range="41-60" class="segment"><span></span></div>
+                        <div data-range="61-80" class="segment"><span></span></div>
+                        <div data-range="81-100" class="segment"><span></span></div>
+                    </div>
+                </div></body></html>
