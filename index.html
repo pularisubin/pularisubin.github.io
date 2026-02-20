@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<!-- saved from url=(0030)https://pularisubin.github.io/ -->
-<html lang="en" style="--vsc-domain: &quot;pularisubin.github.io&quot;;">
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subin Pulari</title>
 
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subin Pulari</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <style>
-        body {
+  <style>
+  body {
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 300;              /* lightweight default */
+    font-weight: 300;
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -21,192 +20,183 @@
     padding: 20px;
     background-color: #f0f0f0;
     color: #333;
-}
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            color: #333;
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .header-text {
-            margin: 0;
-        }
-        .header-text h2 {
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    color: #333;
+  }
+
+  /* Global link style (uniform + toned down) */
+  a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.18);
+    transition: border-bottom-color 0.15s ease, opacity 0.15s ease;
+  }
+
+  a:hover {
+    border-bottom-color: rgba(0,0,0,0.45);
+  }
+
+  a:visited {
+    color: inherit;
+  }
+
+  /* Slightly de-emphasize dense link areas (publications) without changing layout */
+  ol a, ul a {
+    border-bottom-color: rgba(0,0,0,0.16);
+  }
+
+  ol a:hover, ul a:hover {
+    border-bottom-color: rgba(0,0,0,0.40);
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  .header-text {
+    margin: 0;
+  }
+
+  .name {
     margin: 0;
     padding: 0;
-    font-weight: 600;              /* keep name strong */
+    font-size: 1.9rem;
+    font-weight: 600;
     letter-spacing: -0.02em;
-}
-        .header-text p {
-            margin: 0;
-        }
-        .header img {
-            width: 125px;
-            height: auto;
-            border-radius: 50%;
-            box-shadow: 0 0 5px rgba(0,0,0,0.2);
-        }
-        h3 {
+    line-height: 1.15;
+  }
+
+  .header-sub {
+    margin-top: 6px;
+  }
+
+  .role {
+    font-weight: 500;
+    margin: 0 0 4px 0;
+  }
+
+  .affiliation {
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  .header-links {
+    margin-top: 10px;
+    font-size: 0.98rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .sep {
+    opacity: 0.55;
+  }
+
+  .email-obf {
+    white-space: nowrap;
+  }
+
+  .header img {
+    width: 125px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
+
+  /* Section titles */
+  h3 {
     color: #000;
     margin-top: 20px;
     border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
-    font-weight: 500;              /* modern, not heavy */
+    font-weight: 500;
     letter-spacing: -0.01em;
-}
-        ol {
-            padding-left: 20px;
-        }
-    </style>
+  }
+
+  ol {
+    padding-left: 20px;
+  }
+
+  /* Bio */
+  .bio {
+    margin-top: 10px;
+  }
+
+  .bio p {
+    margin: 0 0 10px 0;
+  }
+</style>
 </head>
-<body><vsc-controller class="vsc-controller vsc-nosource" style="top: 0px; left: 0px; position: absolute !important; z-index: 9999999 !important;"><template shadowrootmode="open"><style>
-      * {
-        line-height: 1.8em;
-        font-family: sans-serif;
-        font-size: 13px;
-      }
-      
-      :host(:hover) #controls {
-        display: inline-block;
-      }
-      
-      /* Hide shadow DOM content for different hiding scenarios */
-      :host(.vsc-hidden) #controller,
-      :host(.vsc-nosource) #controller {
-        display: none !important;
-        visibility: hidden !important;
-        opacity: 0 !important;
-      }
-      
-      /* Override hiding for manual controllers (unless explicitly hidden) */
-      :host(.vsc-manual:not(.vsc-hidden)) #controller {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 0.3 !important;
-      }
-      
-      /* Show shadow DOM content when host has vsc-show class (highest priority) */
-      :host(.vsc-show) #controller {
-        display: block !important;
-        visibility: visible !important;
-        opacity: 0.3 !important;
-      }
-      
-      #controller {
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: black;
-        color: white;
-        border-radius: 6px;
-        padding: 4px;
-        margin: 10px 10px 10px 15px;
-        cursor: default;
-        z-index: 9999999;
-        white-space: nowrap;
-      }
-      
-      #controller:hover {
-        opacity: 0.7;
-      }
-      
-      #controller:hover>.draggable {
-        margin-right: 0.8em;
-      }
-      
-      #controls {
-        display: none;
-        vertical-align: middle;
-      }
-      
-      #controller.dragging {
-        cursor: -webkit-grabbing;
-        opacity: 0.7;
-      }
-      
-      #controller.dragging #controls {
-        display: inline-block;
-      }
-      
-      .draggable {
-        cursor: -webkit-grab;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 2.8em;
-        height: 1.4em;
-        text-align: center;
-        vertical-align: middle;
-        box-sizing: border-box;
-      }
-      
-      .draggable:active {
-        cursor: -webkit-grabbing;
-      }
-      
-      button {
-        opacity: 1;
-        cursor: pointer;
-        color: black;
-        background: white;
-        font-weight: normal;
-        border-radius: 5px;
-        padding: 1px 5px 3px 5px;
-        font-size: inherit;
-        line-height: inherit;
-        border: 0px solid white;
-        font-family: "Lucida Console", Monaco, monospace;
-        margin: 0px 2px 2px 2px;
-        transition: background 0.2s, color 0.2s;
-      }
-      
-      button:focus {
-        outline: 0;
-      }
-      
-      button:hover {
-        opacity: 1;
-        background: #2196f3;
-        color: #ffffff;
-      }
-      
-      button:active {
-        background: #2196f3;
-        color: #ffffff;
-        font-weight: bold;
-      }
-      
-      button.rw {
-        opacity: 0.65;
-      }
-      
-      button.hideButton {
-        opacity: 0.65;
-        margin-left: 8px;
-        margin-right: 2px;
-      }
-    </style><div id="controller" style="top: 0px; left: 0px; opacity: 0.3;"><span data-action="drag" class="draggable" style="font-size: 14px;">1.00</span><span id="controls" style="font-size: 14px; line-height: 14px;"><button data-action="rewind" class="rw">«</button><button data-action="slower">−</button><button data-action="faster">+</button><button data-action="advance" class="rw">»</button><button data-action="display" class="hideButton">×</button></span></div></template></vsc-controller>
-    <div class="container">
-        <div class="header">
-            <div class="header-text">
-                <h2>Subin Pulari</h2>
-                <p>Assistant Professor<br>
-                Big Data and Information Retrieval School <br>
-                Faculty of Computer Science<br>
-                HSE University, Moscow<br>
-                Email: spulari (at) hse (dot) ru</p>
-                <p><br><b>Curriculum Vitae: </b><a href="https://pularisubin.github.io/CV.pdf">[Link]</a></p>
-            </div>
-<!--             <img src="photo.jpeg" alt="Subin Pulari">
- -->        </div>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="header-text">
+        <h1 class="name">Subin Pulari</h1>
+
+        <div class="header-sub">
+          <div class="role">Assistant Professor</div>
+          <div class="affiliation">
+            <a href="https://cs.hse.ru/en/big-data/">Big Data and Information Retrieval School</a>
+            <span class="sep">·</span>
+            <a href="https://cs.hse.ru/en/">Faculty of Computer Science</a><br>
+            <a href="https://www.hse.ru/en/">HSE University Moscow</a>
+          </div>
+        </div>
+
+        <div class="header-links">
+          <span>Email: <span class="email-obf">spulari (at) hse (dot) ru</span></span>
+          <span class="sep">·</span>
+          <a href="https://pularisubin.github.io/CV.pdf">CV (PDF)</a>
+        </div>
+      </div>
+
+      <!-- Uncomment if you want a photo -->
+      <!-- <img src="photo.jpeg" alt="Subin Pulari"> -->
+    </div>
+
+    <h3>About</h3>
+    <div class="bio">
+     <p>
+  I am an Assistant Professor in the
+  <a href="https://cs.hse.ru/en/big-data/">Big Data and Information Retrieval School</a>,
+  <a href="https://cs.hse.ru/en/">Faculty of Computer Science</a>,
+  <a href="https://www.hse.ru/en/">HSE University Moscow</a>, where I have been since 2025. Previously, I was a
+  CNRS postdoctoral researcher at <a href="https://www.labri.fr/en">LaBRI</a>,
+  <a href="https://www.u-bordeaux.fr/en">Université de Bordeaux</a> (2024–2025), hosted by
+  <a href="https://www.labri.fr/perso/lbienvenu/index.html">Laurent Bienvenu</a>.
+  I received my Ph.D. and M.Tech. in Computer Science and Engineering from <a href="https://www.iitk.ac.in/">IIT Kanpur</a> in 2024, advised by
+  <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a> and
+  <a href="https://www.cse.iitk.ac.in/users/simon/">Sunil Simon</a>. I obtained my B.Tech. in Computer Science and Engineering from
+  <a href="https://nitc.ac.in/">NIT Calicut</a> in 2018.
+</p>
+
+      <p>
+        My primary interests are <strong>algorithmic information theory</strong>, <strong>computational complexity</strong>,
+        and <strong>computable analysis</strong>. More specifically, I work on resource-bounded notions of
+        randomness and information, and on <strong>effective and finite-state dimensions</strong> as quantitative ways
+        to capture degrees of randomness and compressibility. I am interested in how these notions behave under explicit
+        limits on computation (time, space, or finite memory), and in when randomness can be tested, preserved, or
+        extracted by such bounded procedures. In computable analysis, I focus on the algorithmic and complexity-theoretic
+        content of broader analytic questions, bringing tools from complexity and information to problems that are
+        classically formulated in analysis and dynamical systems.
+      </p>
+    </div>
+
+
 
         <h3>Conference Publications</h3>
         <ol id="conference-publications">
