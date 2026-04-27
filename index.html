@@ -103,26 +103,31 @@
 
     .nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      padding-top: 3px;
       font-family: "Inter", system-ui, sans-serif;
-      font-size: 0.88rem;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      color: var(--heading);
       white-space: nowrap;
-      padding-top: 4px;
     }
 
-    .nav a,
-    .nav span {
-      border: 1px solid var(--line);
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: #fbfcfd;
+    .nav-label {
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-email {
+      color: var(--heading);
+      font-weight: 500;
+    }
+
+    .nav a {
       color: var(--blue);
-    }
-
-    .nav span {
-      color: var(--text);
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     .section {
@@ -242,8 +247,9 @@
       }
 
       .nav {
-        justify-content: flex-start;
-        margin-top: 18px;
+        align-items: flex-start;
+        margin-top: 16px;
+        white-space: normal;
       }
 
       .pub {
@@ -269,8 +275,8 @@
       </div>
 
       <nav class="nav" aria-label="Main links">
-        <span>Email: spulari (at) hse (dot) ru</span>
-        <a href="https://pularisubin.github.io/CV.pdf">CV</a>
+        <span class="nav-email"><span class="nav-label">Email:</span> spulari (at) hse (dot) ru</span>
+        <a href="https://pularisubin.github.io/CV.pdf">Curriculum vitae</a>
       </nav>
     </header>
 
