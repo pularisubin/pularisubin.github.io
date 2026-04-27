@@ -65,10 +65,6 @@
       border-bottom: none;
       padding: 26px 0 28px;
       margin-bottom: 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 24px;
     }
 
     .identity {
@@ -103,15 +99,14 @@
 
     .nav {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-      padding-top: 3px;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 10px;
       font-family: "Inter", system-ui, sans-serif;
       font-size: 0.95rem;
       line-height: 1.35;
       color: var(--heading);
-      white-space: nowrap;
     }
 
     .nav-label {
@@ -122,6 +117,11 @@
     .nav-email {
       color: var(--heading);
       font-weight: 500;
+    }
+
+    .nav-sep {
+      color: var(--line);
+      font-weight: 400;
     }
 
     .nav a {
@@ -238,7 +238,6 @@
       }
 
       .top {
-        display: block;
         padding-top: 22px;
       }
 
@@ -247,9 +246,7 @@
       }
 
       .nav {
-        align-items: flex-start;
-        margin-top: 16px;
-        white-space: normal;
+        margin-top: 12px;
       }
 
       .pub {
@@ -272,12 +269,13 @@
           <a href="https://cs.hse.ru/en/">Faculty of Computer Science</a>,
           <a href="https://www.hse.ru/en/">HSE University Moscow</a>
         </div>
-      </div>
 
-      <nav class="nav" aria-label="Main links">
-        <span class="nav-email"><span class="nav-label">Email:</span> spulari (at) hse (dot) ru</span>
-        <a href="https://pularisubin.github.io/CV.pdf">Curriculum vitae</a>
-      </nav>
+        <nav class="nav" aria-label="Main links">
+          <span class="nav-email"><span class="nav-label">Email:</span> spulari (at) hse (dot) ru</span>
+          <span class="nav-sep">·</span>
+          <a href="https://pularisubin.github.io/CV.pdf">Curriculum vitae</a>
+        </nav>
+      </div>
     </header>
 
     <section class="section" id="about">
