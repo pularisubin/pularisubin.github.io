@@ -65,14 +65,17 @@
 
     .hero-text {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 190px;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-rows: auto auto auto auto;
       column-gap: 24px;
-      align-items: center;
+      row-gap: 10px;
+      align-items: start;
       min-width: 0;
     }
 
     .name {
       grid-column: 1;
+      grid-row: 1;
       margin: 0;
       font-size: 3.05rem;
       line-height: 1.05;
@@ -83,7 +86,8 @@
 
     .title {
       grid-column: 1;
-      margin-top: 10px;
+      grid-row: 2;
+      margin: 0;
       font-size: 1.05rem;
       line-height: 1.35;
       font-weight: 800;
@@ -92,7 +96,8 @@
 
     .affiliation {
       grid-column: 1;
-      margin-top: 15px;
+      grid-row: 3;
+      margin: 0;
       font-size: 1rem;
       line-height: 1.42;
       max-width: 520px;
@@ -100,7 +105,8 @@
 
     .contact-row {
       grid-column: 1;
-      margin-top: 22px;
+      grid-row: 4;
+      margin: 0;
       font-size: 0.95rem;
       line-height: 1.45;
     }
@@ -117,16 +123,17 @@
 
     .photo-wrap {
       grid-column: 2;
-      grid-row: 1 / span 4;
+      grid-row: 2 / 5;
+      align-self: stretch;
       display: flex;
       justify-content: flex-end;
-      align-items: center;
+      align-items: stretch;
     }
 
     .photo {
-      width: 190px;
-      max-width: 100%;
-      height: auto;
+      height: 100%;
+      width: auto;
+      max-width: 190px;
       object-fit: contain;
       display: block;
       border-radius: 0;
@@ -242,21 +249,46 @@
       }
 
       .hero-text {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        row-gap: 0;
+      }
+
+      .name {
+        order: 1;
+        font-size: 2.45rem;
       }
 
       .photo-wrap {
-        display: block;
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-top: 20px;
         margin-bottom: 20px;
       }
 
       .photo {
         width: 190px;
+        height: auto;
+        max-width: 100%;
       }
 
-      .name {
-        font-size: 2.45rem;
+      .title {
+        order: 3;
+        margin: 0;
+      }
+
+      .affiliation {
+        order: 4;
+        margin-top: 14px;
+      }
+
+      .contact-row {
+        order: 5;
+        margin-top: 20px;
       }
     }
 
