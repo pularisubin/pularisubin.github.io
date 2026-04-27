@@ -19,7 +19,7 @@
       --soft-line: #d5d5d5;
       --link: #2f6fc2;
       --link-hover: #1d5599;
-      --site-width: 980px;
+      --site-width: 760px;
     }
 
     * {
@@ -60,18 +60,19 @@
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 230px;
-      gap: 42px;
-      align-items: center;
       margin-bottom: 42px;
     }
 
     .hero-text {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px;
+      column-gap: 24px;
+      align-items: center;
       min-width: 0;
     }
 
     .name {
+      grid-column: 1;
       margin: 0;
       font-size: 3.05rem;
       line-height: 1.05;
@@ -81,6 +82,7 @@
     }
 
     .title {
+      grid-column: 1;
       margin-top: 10px;
       font-size: 1.05rem;
       line-height: 1.35;
@@ -89,6 +91,7 @@
     }
 
     .affiliation {
+      grid-column: 1;
       margin-top: 15px;
       font-size: 1rem;
       line-height: 1.42;
@@ -96,11 +99,8 @@
     }
 
     .contact-row {
+      grid-column: 1;
       margin-top: 22px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: baseline;
-      gap: 8px 13px;
       font-size: 0.95rem;
       line-height: 1.45;
     }
@@ -109,26 +109,27 @@
       font-weight: 800;
     }
 
-    .dot {
-      color: var(--muted);
-    }
-
     .cv-link {
+      display: inline-block;
+      margin-top: 5px;
       font-weight: 700;
     }
 
     .photo-wrap {
+      grid-column: 2;
+      grid-row: 1 / span 4;
       display: flex;
       justify-content: flex-end;
+      align-items: center;
     }
 
     .photo {
-      width: 220px;
+      width: 190px;
       max-width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       display: block;
-      border-radius: 50%;
+      border-radius: 0;
     }
 
     .section + .section {
@@ -237,14 +238,17 @@
       }
 
       .hero {
-        grid-template-columns: 1fr;
-        gap: 24px;
         margin-bottom: 34px;
       }
 
+      .hero-text {
+        display: block;
+      }
+
       .photo-wrap {
-        justify-content: flex-start;
-        order: -1;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 20px;
       }
 
       .photo {
@@ -253,19 +257,6 @@
 
       .name {
         font-size: 2.45rem;
-      }
-
-      .contact-row {
-        display: block;
-      }
-
-      .dot {
-        display: none;
-      }
-
-      .cv-link {
-        display: inline-block;
-        margin-top: 5px;
       }
     }
 
@@ -293,6 +284,11 @@
     <header class="hero">
       <div class="hero-text">
         <h1 class="name">Subin Pulari</h1>
+
+        <div class="photo-wrap">
+          <img class="photo" src="photo.jpg" alt="Portrait of Subin Pulari">
+        </div>
+
         <div class="title">Assistant Professor</div>
 
         <div class="affiliation">
@@ -302,14 +298,9 @@
         </div>
 
         <div class="contact-row">
-          <span>Email: <strong>spulari (at) hse (dot) ru</strong></span>
-          <span class="dot">·</span>
+          <span>Email: <strong>spulari (at) hse (dot) ru</strong></span><br>
           <a class="cv-link" href="https://pularisubin.github.io/CV.pdf">Curriculum vitae</a>
         </div>
-      </div>
-
-      <div class="photo-wrap">
-        <img class="photo" src="photo.jpg" alt="Portrait of Subin Pulari">
       </div>
     </header>
 
