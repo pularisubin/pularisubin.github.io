@@ -12,15 +12,15 @@
 
   <style>
     :root {
-      --page-bg: #e8e8e8;
-      --panel-bg: #f3f3f3;
-      --text: #2b2b2b;
-      --muted: #8a8a8a;
-      --line: #bdbdbd;
-      --soft-line: #d6d6d6;
+      --page-bg: #ffffff;
+      --card-bg: #f8f8f8;
+      --text: #222222;
+      --muted: #9b9b9b;
+      --line: #b8b8b8;
+      --soft-line: #d5d5d5;
       --link: #2f6fc2;
       --link-hover: #1d5599;
-      --top-bar: #111111;
+      --card-border: #bfbfbf;
     }
 
     * {
@@ -54,26 +54,36 @@
     }
 
     .shell {
-      max-width: 1160px;
+      width: min(1220px, 100vw);
       height: 100dvh;
       margin: 0 auto;
-      padding: 28px 22px;
+      padding: 64px 24px 0;
       display: grid;
-      grid-template-columns: 340px minmax(0, 1fr);
-      gap: 22px;
-      align-items: stretch;
+      grid-template-columns: 385px minmax(0, 1fr);
+      gap: 40px;
+      align-items: start;
+    }
+
+    .sidebar-wrap {
+      height: calc(100dvh - 64px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      overflow: hidden;
+      padding-top: 48px;
     }
 
     .sidebar {
-      padding: 48px 28px 26px;
+      width: 385px;
+      min-height: 360px;
+      padding: 28px 24px 26px;
       text-align: center;
+      background: var(--card-bg);
+      border: 2px solid var(--card-border);
+      border-radius: 7px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      min-height: 0;
-      background: transparent;
     }
 
     .sidebar img {
@@ -82,7 +92,7 @@
       aspect-ratio: 1 / 1;
       object-fit: cover;
       display: block;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
       border-radius: 50%;
     }
 
@@ -91,66 +101,56 @@
       font-size: 2.55rem;
       line-height: 1.06;
       font-weight: 400;
-      letter-spacing: -0.03em;
-      color: #111;
+      letter-spacing: -0.04em;
+      color: #111111;
     }
 
     .title {
-      margin-top: 7px;
+      margin-top: 8px;
       font-size: 0.98rem;
       line-height: 1.35;
-      font-weight: 700;
-      color: #111;
+      font-weight: 800;
+      color: #111111;
     }
 
     .affiliation {
       margin-top: 13px;
       font-size: 0.92rem;
       line-height: 1.34;
-      max-width: 275px;
+      max-width: 310px;
     }
 
     .contact {
-      margin-top: 20px;
+      margin-top: 24px;
       font-size: 0.92rem;
       line-height: 1.45;
-      color: #111;
+      color: #111111;
     }
 
     .contact strong {
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .cv-link {
       margin-top: 5px;
       font-size: 0.92rem;
-      font-weight: 600;
-    }
-
-    .panel {
-      background: var(--panel-bg);
-      position: relative;
-      min-height: 0;
-    }
-
-    .panel::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 10px;
-      background: var(--top-bar);
+      font-weight: 700;
     }
 
     .content {
-      padding: 48px 46px 34px 46px;
+      height: 100dvh;
       overflow-y: auto;
       overflow-x: hidden;
+      padding: 52px 0 42px;
+    }
+
+    .content-inner {
+      max-width: 760px;
+      padding-right: 8px;
     }
 
     .section + .section {
-      margin-top: 28px;
+      margin-top: 30px;
     }
 
     .section-heading {
@@ -162,10 +162,10 @@
 
     .section-heading h2 {
       margin: 0;
-      font-size: 1.05rem;
+      font-size: 1.08rem;
       line-height: 1.2;
       font-weight: 800;
-      color: #111;
+      color: #111111;
       white-space: nowrap;
     }
 
@@ -180,8 +180,7 @@
       margin: 0 0 14px 0;
       font-size: 1rem;
       line-height: 1.45;
-      color: #232323;
-      max-width: 760px;
+      color: #222222;
     }
 
     .pub-list {
@@ -199,14 +198,14 @@
       font-size: 0.98rem;
       line-height: 1.35;
       font-weight: 800;
-      color: #111;
+      color: #111111;
     }
 
     .pub-authors {
       margin-top: 6px;
       font-size: 0.93rem;
       line-height: 1.4;
-      color: #a0a0a0;
+      color: var(--muted);
     }
 
     .pub-venue {
@@ -237,7 +236,7 @@
     }
 
     .note {
-      color: #666;
+      color: #666666;
     }
 
     .footer {
@@ -246,59 +245,69 @@
       color: #7a7a7a;
     }
 
-    @media (max-height: 720px) and (min-width: 981px) {
+    @media (max-height: 760px) and (min-width: 981px) {
       .shell {
-        padding-top: 20px;
-        padding-bottom: 20px;
-        grid-template-columns: 320px minmax(0, 1fr);
+        padding-top: 38px;
+      }
+
+      .sidebar-wrap {
+        height: calc(100dvh - 38px);
+        padding-top: 28px;
       }
 
       .sidebar {
-        padding: 40px 24px 22px;
+        padding: 24px 22px 22px;
       }
 
       .sidebar img {
-        width: 180px;
-        margin-bottom: 18px;
+        width: 185px;
+        margin-bottom: 20px;
       }
 
       .name {
-        font-size: 2.25rem;
+        font-size: 2.35rem;
       }
 
       .title {
-        margin-top: 5px;
-        font-size: 0.92rem;
+        font-size: 0.94rem;
       }
 
       .affiliation {
         margin-top: 10px;
-        font-size: 0.86rem;
-        line-height: 1.3;
+        font-size: 0.87rem;
       }
 
       .contact {
-        margin-top: 16px;
-        font-size: 0.86rem;
+        margin-top: 18px;
+        font-size: 0.87rem;
       }
 
       .cv-link {
-        font-size: 0.86rem;
+        font-size: 0.87rem;
+      }
+
+      .content {
+        padding-top: 42px;
       }
     }
 
-    @media (max-height: 620px) and (min-width: 981px) {
-      .sidebar {
-        padding-top: 34px;
+    @media (max-height: 640px) and (min-width: 981px) {
+      .shell {
+        padding-top: 24px;
+      }
+
+      .sidebar-wrap {
+        height: calc(100dvh - 24px);
+        padding-top: 18px;
       }
 
       .sidebar img {
         width: 155px;
-        margin-bottom: 15px;
+        margin-bottom: 16px;
       }
 
       .name {
-        font-size: 2rem;
+        font-size: 2.05rem;
       }
 
       .affiliation {
@@ -316,47 +325,51 @@
       }
 
       .shell {
+        width: 100%;
         height: auto;
         min-height: 100vh;
         grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 24px;
+      }
+
+      .sidebar-wrap {
+        height: auto;
+        padding-top: 0;
+        overflow: visible;
       }
 
       .sidebar {
-        padding-bottom: 28px;
+        width: min(385px, 100%);
       }
 
       .content {
+        height: auto;
         overflow: visible;
+        padding: 0 0 36px;
+      }
+
+      .content-inner {
+        max-width: none;
+        padding-right: 0;
       }
     }
 
     @media (max-width: 640px) {
       .shell {
         padding: 16px;
-        gap: 16px;
-      }
-
-      .sidebar,
-      .content {
-        padding-left: 22px;
-        padding-right: 22px;
       }
 
       .sidebar {
-        padding-top: 46px;
-      }
-
-      .content {
-        padding-top: 38px;
+        padding: 24px 18px 22px;
       }
 
       .sidebar img {
-        width: 220px;
-        margin-bottom: 22px;
+        width: 200px;
       }
 
       .name {
-        font-size: 2.35rem;
+        font-size: 2.25rem;
       }
 
       .about p,
@@ -371,295 +384,299 @@
 
 <body>
   <main class="shell">
-    <aside class="sidebar">
-      <img src="photo.jpg" alt="Portrait of Subin Pulari">
+    <aside class="sidebar-wrap">
+      <div class="sidebar">
+        <img src="photo.jpg" alt="Portrait of Subin Pulari">
 
-      <h1 class="name">Subin Pulari</h1>
-      <div class="title">Assistant Professor</div>
+        <h1 class="name">Subin Pulari</h1>
+        <div class="title">Assistant Professor</div>
 
-      <div class="affiliation">
-        <a href="https://cs.hse.ru/en/big-data/">Big Data and Information Retrieval School</a><br>
-        <a href="https://cs.hse.ru/en/">Faculty of Computer Science</a>,
-        <a href="https://www.hse.ru/en/">HSE University Moscow</a>
-      </div>
+        <div class="affiliation">
+          <a href="https://cs.hse.ru/en/big-data/">Big Data and Information Retrieval School</a><br>
+          <a href="https://cs.hse.ru/en/">Faculty of Computer Science</a>,
+          <a href="https://www.hse.ru/en/">HSE University Moscow</a>
+        </div>
 
-      <div class="contact">
-        Email: <strong>spulari (at) hse (dot) ru</strong>
-      </div>
+        <div class="contact">
+          Email: <strong>spulari (at) hse (dot) ru</strong>
+        </div>
 
-      <div class="cv-link">
-        <a href="https://pularisubin.github.io/CV.pdf">Curriculum vitae</a>
+        <div class="cv-link">
+          <a href="https://pularisubin.github.io/CV.pdf">Curriculum vitae</a>
+        </div>
       </div>
     </aside>
 
-    <section class="panel content">
-      <section class="section about" id="about">
-        <div class="section-heading">
-          <h2>About</h2>
+    <section class="content">
+      <div class="content-inner">
+        <section class="section about" id="about">
+          <div class="section-heading">
+            <h2>About</h2>
+          </div>
+
+          <p>
+            I am an Assistant Professor in the
+            <a href="https://cs.hse.ru/en/big-data/">Big Data and Information Retrieval School</a>,
+            <a href="https://cs.hse.ru/en/">Faculty of Computer Science</a>,
+            <a href="https://www.hse.ru/en/">HSE University Moscow</a>, where I have been since 2025. Previously, I was a CNRS postdoctoral researcher at
+            <a href="https://www.labri.fr/en">LaBRI</a>,
+            <a href="https://www.u-bordeaux.fr/en">Université de Bordeaux</a> from 2024 to 2025, hosted by
+            <a href="https://www.labri.fr/perso/lbienvenu/index.html">Laurent Bienvenu</a>.
+          </p>
+
+          <p>
+            I received my Ph.D. and M.Tech. in Computer Science and Engineering from
+            <a href="https://www.iitk.ac.in/">IIT Kanpur</a> in 2024, advised by
+            <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a> and
+            <a href="https://www.cse.iitk.ac.in/users/simon/">Sunil Simon</a>. I obtained my B.Tech. in Computer Science and Engineering from
+            <a href="https://nitc.ac.in/">NIT Calicut</a> in 2018.
+          </p>
+
+          <p>
+            My primary interests are algorithmic information theory, computational complexity, and computable analysis.
+          </p>
+        </section>
+
+        <section class="section" id="conference-publications">
+          <div class="section-heading">
+            <h2>Conference Publications</h2>
+          </div>
+
+          <div class="pub-list">
+            <article class="pub">
+              <h3 class="pub-title">Randomness Extraction Fails for Finite-State Dimension</h3>
+              <div class="pub-authors">
+                Joint work with <a href="https://www.cse.iitk.ac.in/users/akhis/">Akhil S</a>.
+              </div>
+              <div class="pub-venue">
+                41st Annual Symposium on Logic in Computer Science, LICS 2026, Lisbon, Portugal.
+                <span class="note">To appear.</span>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">A Markov-Chain Characterization of Finite-State Dimension and a Generalization of Agafonov's Theorem</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.labri.fr/perso/lbienvenu/index.html">Laurent Bienvenu</a> and
+                <a href="https://www.labri.fr/perso/gimbert/">Hugo Gimbert</a>.
+              </div>
+              <div class="pub-venue">
+                17th Latin American Theoretical Informatics Symposium, LATIN 2026, Florianópolis, Brazil.
+                <span class="note">To appear.</span>
+              </div>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2510.18736">arXiv</a>
+                <a href="https://pularisubin.github.io/markovchainfsd.pdf">PDF</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">The Agafonov and Schnorr-Stimm Theorems for Probabilistic Automata</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.labri.fr/perso/lbienvenu/index.html">Laurent Bienvenu</a> and
+                <a href="https://www.labri.fr/perso/gimbert/">Hugo Gimbert</a>.
+              </div>
+              <div class="pub-venue">
+                45th IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science, FSTTCS 2025, Goa, India.
+              </div>
+              <div class="pub-links">
+                <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSTTCS.2025.16">Proceedings</a>
+                <a href="https://arxiv.org/abs/2502.12307">arXiv</a>
+                <a href="https://pularisubin.github.io/agafonov.pdf">PDF</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">Point-to-Set Principle and Constructive Dimension Faithfulness</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a> and
+                <a href="https://www.cse.iitk.ac.in/users/akhis/">Akhil S</a>.
+              </div>
+              <div class="pub-venue">
+                49th International Symposium on Mathematical Foundations of Computer Science, MFCS 2024, Bratislava, Slovakia.
+              </div>
+              <div class="pub-links">
+                <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2024.76">Proceedings</a>
+                <a href="https://arxiv.org/abs/2403.08278">arXiv</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">A Weyl Criterion for Finite-State Dimension and Applications</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://jacklutz.com/">Jack H. Lutz</a> and
+                <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>.
+              </div>
+              <div class="pub-venue">
+                48th International Symposium on Mathematical Foundations of Computer Science, MFCS 2023, Bordeaux, France.
+              </div>
+              <div class="pub-links">
+                <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2023.65">Proceedings</a>
+                <a href="https://arxiv.org/abs/2111.04030">arXiv</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">Real Numbers Equally Compressible in Every Base</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>.
+              </div>
+              <div class="pub-venue">
+                40th International Symposium on Theoretical Aspects of Computer Science, STACS 2023, Hamburg, Germany. Invited to the STACS special issue of <i>ACM Transactions on Computation Theory</i>.
+              </div>
+              <div class="pub-links">
+                <a href="https://drops.dagstuhl.de/opus/volltexte/2023/17700/">Proceedings</a>
+                <a href="https://arxiv.org/abs/2208.06340">arXiv</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">Finite-State Relative Dimension and the Dimensions of A.P. Subsequences</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a> and
+                <a href="https://www.cse.iitk.ac.in/users/akhis/">Akhil S</a>.
+              </div>
+              <div class="pub-venue">
+                17th Annual Conference on Theory and Applications of Models of Computation, TAMC 2022, Tianjin, China.
+              </div>
+              <div class="pub-links">
+                <a href="https://link.springer.com/chapter/10.1007/978-3-031-20350-3_27">Proceedings</a>
+                <a href="https://arxiv.org/abs/2305.06570">arXiv</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">Ergodic Theorems for PSPACE Functions and Their Converses</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>.
+              </div>
+              <div class="pub-venue">
+                46th International Symposium on the Mathematical Foundations of Computer Science, MFCS 2021, Tallinn, Estonia.
+              </div>
+              <div class="pub-links">
+                <a href="https://drops.dagstuhl.de/opus/volltexte/2021/14520/">Proceedings</a>
+                <a href="https://arxiv.org/abs/2012.11266">arXiv</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="journal-publications">
+          <div class="section-heading">
+            <h2>Journal Publications</h2>
+          </div>
+
+          <div class="pub-list">
+            <article class="pub">
+              <h3 class="pub-title">Real Numbers Equally Compressible in Every Base</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>.
+              </div>
+              <div class="pub-venue">
+                <i>ACM Transactions on Computation Theory</i>, 2025.
+              </div>
+              <div class="pub-links">
+                <a href="https://doi.org/10.1145/3729207">Link</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">Finite-State Relative Dimension, Dimensions of A.P. Subsequences and a Finite-State van Lambalgen's Theorem</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a> and
+                <a href="https://www.cse.iitk.ac.in/users/akhis/">Akhil S</a>.
+              </div>
+              <div class="pub-venue">
+                <i>Information and Computation</i>, Volume 298, June 2024, 105156.
+              </div>
+              <div class="pub-links">
+                <a href="https://www.sciencedirect.com/science/article/pii/S089054012400021X?dgcid=author">Link</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">Ergodic Theorems and Converses for PSPACE Functions</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>.
+              </div>
+              <div class="pub-venue">
+                <i>Theory of Computing Systems</i>, 2022.
+              </div>
+              <div class="pub-links">
+                <a href="https://link.springer.com/article/10.1007/s00224-022-10094-9">Link</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">An Analogue of Pillai's Theorem for Continued Fraction Normality and an Application to Subsequences</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>,
+                <a href="https://prateekvishnoi.netlify.app/">Prateek Vishnoi</a>, and Gopal Viswanathan.
+              </div>
+              <div class="pub-venue">
+                <i>Bulletin of the London Mathematical Society</i>, Volume 53, Issue 5, October 2021, pages 1414–1428.
+              </div>
+              <div class="pub-links">
+                <a href="https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/blms.12507">Link</a>
+                <a href="https://arxiv.org/abs/1909.03431">arXiv</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="preprints">
+          <div class="section-heading">
+            <h2>Preprints</h2>
+          </div>
+
+          <div class="pub-list">
+            <article class="pub">
+              <h3 class="pub-title">One-Way Functions and Polynomial Time Dimension</h3>
+              <div class="pub-authors">
+                Joint work with
+                <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>,
+                <a href="https://www.cse.iitk.ac.in/users/akhis/">Akhil S</a>, and
+                <a href="https://www.cse.iitk.ac.in/users/suronjona/">Suronjona Sarma</a>.
+              </div>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2411.02392">arXiv</a>
+                <a href="https://eccc.weizmann.ac.il/report/2025/028/">ECCC</a>
+                <a href="https://pularisubin.github.io/owfdimensionduality.pdf">PDF</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">On Normality and Equidistribution for Separator Enumerators</h3>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2602.01199">arXiv</a>
+                <a href="oense.pdf">PDF</a>
+              </div>
+            </article>
+
+            <article class="pub">
+              <h3 class="pub-title">Efficient Constructions of Finite-State Independent Normal Pairs</h3>
+              <div class="pub-links">
+                <a href="https://arxiv.org/abs/2602.23030">arXiv</a>
+                <a href="ecfsinp.pdf">PDF</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <div class="footer">
+          Last updated: April 2026.
         </div>
-
-        <p>
-          I am an Assistant Professor in the
-          <a href="https://cs.hse.ru/en/big-data/">Big Data and Information Retrieval School</a>,
-          <a href="https://cs.hse.ru/en/">Faculty of Computer Science</a>,
-          <a href="https://www.hse.ru/en/">HSE University Moscow</a>, where I have been since 2025. Previously, I was a CNRS postdoctoral researcher at
-          <a href="https://www.labri.fr/en">LaBRI</a>,
-          <a href="https://www.u-bordeaux.fr/en">Université de Bordeaux</a> from 2024 to 2025, hosted by
-          <a href="https://www.labri.fr/perso/lbienvenu/index.html">Laurent Bienvenu</a>.
-        </p>
-
-        <p>
-          I received my Ph.D. and M.Tech. in Computer Science and Engineering from
-          <a href="https://www.iitk.ac.in/">IIT Kanpur</a> in 2024, advised by
-          <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a> and
-          <a href="https://www.cse.iitk.ac.in/users/simon/">Sunil Simon</a>. I obtained my B.Tech. in Computer Science and Engineering from
-          <a href="https://nitc.ac.in/">NIT Calicut</a> in 2018.
-        </p>
-
-        <p>
-          My primary interests are algorithmic information theory, computational complexity, and computable analysis.
-        </p>
-      </section>
-
-      <section class="section" id="conference-publications">
-        <div class="section-heading">
-          <h2>Conference Publications</h2>
-        </div>
-
-        <div class="pub-list">
-          <article class="pub">
-            <h3 class="pub-title">Randomness Extraction Fails for Finite-State Dimension</h3>
-            <div class="pub-authors">
-              Joint work with <a href="https://www.cse.iitk.ac.in/users/akhis/">Akhil S</a>.
-            </div>
-            <div class="pub-venue">
-              41st Annual Symposium on Logic in Computer Science, LICS 2026, Lisbon, Portugal.
-              <span class="note">To appear.</span>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">A Markov-Chain Characterization of Finite-State Dimension and a Generalization of Agafonov's Theorem</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.labri.fr/perso/lbienvenu/index.html">Laurent Bienvenu</a> and
-              <a href="https://www.labri.fr/perso/gimbert/">Hugo Gimbert</a>.
-            </div>
-            <div class="pub-venue">
-              17th Latin American Theoretical Informatics Symposium, LATIN 2026, Florianópolis, Brazil.
-              <span class="note">To appear.</span>
-            </div>
-            <div class="pub-links">
-              <a href="https://arxiv.org/abs/2510.18736">arXiv</a>
-              <a href="https://pularisubin.github.io/markovchainfsd.pdf">PDF</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">The Agafonov and Schnorr-Stimm Theorems for Probabilistic Automata</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.labri.fr/perso/lbienvenu/index.html">Laurent Bienvenu</a> and
-              <a href="https://www.labri.fr/perso/gimbert/">Hugo Gimbert</a>.
-            </div>
-            <div class="pub-venue">
-              45th IARCS Annual Conference on Foundations of Software Technology and Theoretical Computer Science, FSTTCS 2025, Goa, India.
-            </div>
-            <div class="pub-links">
-              <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.FSTTCS.2025.16">Proceedings</a>
-              <a href="https://arxiv.org/abs/2502.12307">arXiv</a>
-              <a href="https://pularisubin.github.io/agafonov.pdf">PDF</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">Point-to-Set Principle and Constructive Dimension Faithfulness</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a> and
-              <a href="https://www.cse.iitk.ac.in/users/akhis/">Akhil S</a>.
-            </div>
-            <div class="pub-venue">
-              49th International Symposium on Mathematical Foundations of Computer Science, MFCS 2024, Bratislava, Slovakia.
-            </div>
-            <div class="pub-links">
-              <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2024.76">Proceedings</a>
-              <a href="https://arxiv.org/abs/2403.08278">arXiv</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">A Weyl Criterion for Finite-State Dimension and Applications</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://jacklutz.com/">Jack H. Lutz</a> and
-              <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>.
-            </div>
-            <div class="pub-venue">
-              48th International Symposium on Mathematical Foundations of Computer Science, MFCS 2023, Bordeaux, France.
-            </div>
-            <div class="pub-links">
-              <a href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2023.65">Proceedings</a>
-              <a href="https://arxiv.org/abs/2111.04030">arXiv</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">Real Numbers Equally Compressible in Every Base</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>.
-            </div>
-            <div class="pub-venue">
-              40th International Symposium on Theoretical Aspects of Computer Science, STACS 2023, Hamburg, Germany. Invited to the STACS special issue of <i>ACM Transactions on Computation Theory</i>.
-            </div>
-            <div class="pub-links">
-              <a href="https://drops.dagstuhl.de/opus/volltexte/2023/17700/">Proceedings</a>
-              <a href="https://arxiv.org/abs/2208.06340">arXiv</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">Finite-State Relative Dimension and the Dimensions of A.P. Subsequences</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a> and
-              <a href="https://www.cse.iitk.ac.in/users/akhis/">Akhil S</a>.
-            </div>
-            <div class="pub-venue">
-              17th Annual Conference on Theory and Applications of Models of Computation, TAMC 2022, Tianjin, China.
-            </div>
-            <div class="pub-links">
-              <a href="https://link.springer.com/chapter/10.1007/978-3-031-20350-3_27">Proceedings</a>
-              <a href="https://arxiv.org/abs/2305.06570">arXiv</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">Ergodic Theorems for PSPACE Functions and Their Converses</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>.
-            </div>
-            <div class="pub-venue">
-              46th International Symposium on the Mathematical Foundations of Computer Science, MFCS 2021, Tallinn, Estonia.
-            </div>
-            <div class="pub-links">
-              <a href="https://drops.dagstuhl.de/opus/volltexte/2021/14520/">Proceedings</a>
-              <a href="https://arxiv.org/abs/2012.11266">arXiv</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="journal-publications">
-        <div class="section-heading">
-          <h2>Journal Publications</h2>
-        </div>
-
-        <div class="pub-list">
-          <article class="pub">
-            <h3 class="pub-title">Real Numbers Equally Compressible in Every Base</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>.
-            </div>
-            <div class="pub-venue">
-              <i>ACM Transactions on Computation Theory</i>, 2025.
-            </div>
-            <div class="pub-links">
-              <a href="https://doi.org/10.1145/3729207">Link</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">Finite-State Relative Dimension, Dimensions of A.P. Subsequences and a Finite-State van Lambalgen's Theorem</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a> and
-              <a href="https://www.cse.iitk.ac.in/users/akhis/">Akhil S</a>.
-            </div>
-            <div class="pub-venue">
-              <i>Information and Computation</i>, Volume 298, June 2024, 105156.
-            </div>
-            <div class="pub-links">
-              <a href="https://www.sciencedirect.com/science/article/pii/S089054012400021X?dgcid=author">Link</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">Ergodic Theorems and Converses for PSPACE Functions</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>.
-            </div>
-            <div class="pub-venue">
-              <i>Theory of Computing Systems</i>, 2022.
-            </div>
-            <div class="pub-links">
-              <a href="https://link.springer.com/article/10.1007/s00224-022-10094-9">Link</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">An Analogue of Pillai's Theorem for Continued Fraction Normality and an Application to Subsequences</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>,
-              <a href="https://prateekvishnoi.netlify.app/">Prateek Vishnoi</a>, and Gopal Viswanathan.
-            </div>
-            <div class="pub-venue">
-              <i>Bulletin of the London Mathematical Society</i>, Volume 53, Issue 5, October 2021, pages 1414–1428.
-            </div>
-            <div class="pub-links">
-              <a href="https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/blms.12507">Link</a>
-              <a href="https://arxiv.org/abs/1909.03431">arXiv</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="preprints">
-        <div class="section-heading">
-          <h2>Preprints</h2>
-        </div>
-
-        <div class="pub-list">
-          <article class="pub">
-            <h3 class="pub-title">One-Way Functions and Polynomial Time Dimension</h3>
-            <div class="pub-authors">
-              Joint work with
-              <a href="https://www.cse.iitk.ac.in/users/satyadev/">Satyadev Nandakumar</a>,
-              <a href="https://www.cse.iitk.ac.in/users/akhis/">Akhil S</a>, and
-              <a href="https://www.cse.iitk.ac.in/users/suronjona/">Suronjona Sarma</a>.
-            </div>
-            <div class="pub-links">
-              <a href="https://arxiv.org/abs/2411.02392">arXiv</a>
-              <a href="https://eccc.weizmann.ac.il/report/2025/028/">ECCC</a>
-              <a href="https://pularisubin.github.io/owfdimensionduality.pdf">PDF</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">On Normality and Equidistribution for Separator Enumerators</h3>
-            <div class="pub-links">
-              <a href="https://arxiv.org/abs/2602.01199">arXiv</a>
-              <a href="oense.pdf">PDF</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <h3 class="pub-title">Efficient Constructions of Finite-State Independent Normal Pairs</h3>
-            <div class="pub-links">
-              <a href="https://arxiv.org/abs/2602.23030">arXiv</a>
-              <a href="ecfsinp.pdf">PDF</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <div class="footer">
-        Last updated: April 2026.
       </div>
     </section>
   </main>
